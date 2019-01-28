@@ -6,14 +6,14 @@ public class UserTest {
 
     @Test
     public void create_user_created(){
-        User createdUser = new User();
+        IUserLogin createdUser = new User();
         Assert.assertNotNull(createdUser);
     }
 
     @Test
     public void createOnConstructor_user_created(){
         UserHandler userHandler = new UserHandler();
-        User createdUser = userHandler.user;
+        IUserLogin createdUser = userHandler.user;
         Assert.assertNotNull(createdUser);
     }
 
@@ -21,7 +21,7 @@ public class UserTest {
     public void login_userService_has(){
         UserService userService = new UserService();
 
-        User user = new User();
+        IUserLogin user = new User();
         user.setUserName("123456");
         user.setPassword("password");
 
@@ -29,6 +29,22 @@ public class UserTest {
         String expected = "123456password";
 
         Assert.assertEquals(actual,expected);
+    }
+
+    @Test
+    public void sendPackage_userService_queue(){
+        UserService userService = new UserService();
+
+        IUserSendPackage user = new User();
+        user.setFirstName("Alejandro");
+        user.setLastName("Enríquez");
+        user.setAddress("Rambla de barcelona, 25");
+        user.setPackageSKU("123456");
+        String actualTrackingId = userService.sendPackage(user);
+
+        String expectedTrackingId = "AlejandroEnríquez123456";
+
+        Assert.assertEquals(actualTrackingId , expectedTrackingId);
     }
 
 

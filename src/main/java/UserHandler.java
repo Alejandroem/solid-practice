@@ -1,5 +1,5 @@
 public class UserHandler {
-    public User user;
+    public IUserLogin user;
 
     public UserHandler(){
         this.user = new User();
