@@ -60,5 +60,29 @@ public class UserTest {
         Assert.assertEquals(expectedInvoiceId,actualInvoiceId);
     }
 
+    @Test
+    public void sendEmail_userService_queue(){
+        UserService userService = new UserService();
 
+        IUserSendEmail user = new User();
+        user.setEmail("alexalejandro123@yahoo.com");
+
+        String expectedResponse = "sent from: alexalejandro123@yahoo.com";
+        String actualResponse = userService.sendEmail(user);
+
+        Assert.assertEquals(actualResponse,expectedResponse);
+    }
+
+    @Test
+    public void createPersonalizedHat_userService_queue(){
+        UserService userService = new UserService();
+
+        User user = new User();
+        user.setHeadSize("M");
+
+        String expectedResponse = "hat size: M";
+        String actualResponse = userService.createPersonalizedHat(user);
+
+        Assert.assertEquals(actualResponse,expectedResponse);
+    }
 }

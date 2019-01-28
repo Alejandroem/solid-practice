@@ -10,4 +10,12 @@ public class UserService {
     public String sendInvoice(IUserSendInvoice IUserSendInvoice) {
         return "Invoice "+ IUserSendInvoice.getAddress();
     }
+
+    public String sendEmail(IUserSendEmail IUserSendEmail) {
+        return "sent from: "+ IUserSendEmail.getEmail();
+    }
+
+    public String createPersonalizedHat(User user) {
+        return "hat size: "+user.getHeadSize();
+    }
 }

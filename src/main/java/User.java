@@ -1,10 +1,12 @@
-public class User implements IUserLogin, IUserSendPackage, IUserSendInvoice {
+public class User implements IUserLogin, IUserSendPackage, IUserSendInvoice, IUserSendEmail {
     private String userName;
     private String password;
     private String firstName;
     private String lastName;
     private String address;
     private String packageSKU;
+    private String email;
+    private String headSize;
 
     public void setUserName(String userName) {
         this.userName = userName;
@@ -52,5 +54,21 @@ public class User implements IUserLogin, IUserSendPackage, IUserSendInvoice {
 
     public String getPackageSKU() {
         return packageSKU;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getEmail(){
+        return this.email;
+    }
+
+    public void setHeadSize(String headSize) {
+        this.headSize = headSize;
+    }
+
+    public String getHeadSize() {
+        return headSize;
     }
 }
