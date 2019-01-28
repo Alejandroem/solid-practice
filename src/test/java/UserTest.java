@@ -47,5 +47,18 @@ public class UserTest {
         Assert.assertEquals(actualTrackingId , expectedTrackingId);
     }
 
+    @Test
+    public void sendInvoice_userService_queue(){
+        UserService userService = new UserService();
+
+        IUserSendInvoice user = new User();
+        user.setAddress("Rambla de barcelona, 25");
+
+        String expectedInvoiceId = ("Invoice Rambla de barcelona, 25");
+        String actualInvoiceId = userService.sendInvoice(user);
+
+        Assert.assertEquals(expectedInvoiceId,actualInvoiceId);
+    }
+
 
 }

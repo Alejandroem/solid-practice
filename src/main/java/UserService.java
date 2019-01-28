@@ -6,4 +6,8 @@ public class UserService {
     public String sendPackage(IUserSendPackage IUserSendPackage) {
         return IUserSendPackage.getFirstName() + IUserSendPackage.getLastName()+ IUserSendPackage.getPackageSKU();
     }
+
+    public String sendInvoice(IUserSendInvoice IUserSendInvoice) {
+        return "Invoice "+ IUserSendInvoice.getAddress();
+    }
 }
